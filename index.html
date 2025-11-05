@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CRM Artisans — Gagner du temps, encaisser plus vite</title>
-  <meta name="description" content="Un CRM simple pour artisans : devis, opérations, factures et relances — tout au même endroit." />
+  <title>CRM Artisans — Simplifiez vos devis et factures</title>
+  <meta name="description" content="Le CRM intuitif pour les artisans : créez vos devis, planifiez vos chantiers et gérez vos factures sans stress." />
   <style>
     :root{
       --bg: #f8fafc;
@@ -17,72 +17,65 @@
       --shadow: 0 4px 20px rgba(0,0,0,.08);
       --radius: 12px;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica Neue,Arial,"Apple Color Emoji","Segoe UI Emoji"}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.5}
     a{text-decoration:none;color:var(--primary)}
-    .container{max-width:1120px;margin:0 auto;padding:0 20px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;background:var(--primary);color:#fff;font-weight:600;border:1px solid transparent;box-shadow:var(--shadow);transition:.2s}
-    .btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
-    .btn.secondary{background:#fff;border:1px solid var(--primary);color:var(--primary)}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;background:var(--primary);color:#fff;font-weight:600;border:none;box-shadow:var(--shadow);transition:all .2s ease}
+    .btn:hover{filter:brightness(1.1);transform:translateY(-2px)}
 
-    header{position:sticky;top:0;z-index:50;background:#ffffffee;backdrop-filter: blur(8px);border-bottom:1px solid var(--border)}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
-    .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--primary-2));display:grid;place-items:center;color:#fff;font-size:16px}
-    .menu{display:flex;gap:20px;color:var(--muted)}
-    .menu a{padding:8px 10px;border-radius:8px}
+    header{position:sticky;top:0;background:#fffefeee;border-bottom:1px solid var(--border);backdrop-filter:blur(8px);z-index:50}
+    .nav{display:flex;justify-content:space-between;align-items:center;height:64px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem}
+    .logo{width:28px;height:28px;background:linear-gradient(135deg,var(--primary),var(--primary-2));border-radius:8px;display:grid;place-items:center;color:#fff;font-weight:700}
+    .menu{display:flex;gap:20px}
+    .menu a{color:var(--muted);font-weight:500;padding:8px;border-radius:8px}
     .menu a:hover{background:#eef2ff;color:var(--primary)}
 
-    .hero{padding:80px 0 30px;border-bottom:1px solid var(--border)}
+    .hero{padding:80px 0;border-bottom:1px solid var(--border)}
     .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-    .eyebrow{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef2ff;color:var(--primary);font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
-    h1{font-size:42px;line-height:1.1;margin:14px 0 12px}
-    .sub{color:var(--muted);font-size:18px}
-    .hero-cta{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
-    .statbar{display:flex;gap:16px;margin-top:22px;color:var(--muted)}
-    .stat{background:#fff;border:1px solid var(--border);padding:12px 14px;border-radius:12px;box-shadow:var(--shadow)}
+    .eyebrow{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef2ff;color:var(--primary);font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+    h1{font-size:42px;margin:16px 0 10px}
+    .sub{color:var(--muted);font-size:18px;max-width:600px}
+    .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
 
     .device{border:1px solid var(--border);border-radius:20px;background:#fff;box-shadow:var(--shadow);overflow:hidden}
     .device-head{display:flex;gap:6px;padding:10px 12px;border-bottom:1px solid var(--border);background:#f1f5f9}
     .dot{width:10px;height:10px;border-radius:50%;background:#cbd5e1}
-    .mock{height:360px;border-radius:12px;border:1px dashed #cbd5e1;display:grid;place-items:center;color:#64748b;background:#f8fafc}
+    .mock{height:340px;border-radius:12px;border:1px dashed #cbd5e1;display:grid;place-items:center;color:#64748b;background:#f8fafc;text-align:center;padding:20px}
 
-    section{padding:64px 0;border-bottom:1px solid var(--border)}
-    h2{font-size:30px;margin:0 0 14px}
-    p.lead{color:var(--muted);max-width:800px}
+    section{padding:70px 0;border-bottom:1px solid var(--border)}
+    h2{font-size:30px;margin-bottom:12px}
+    p.lead{color:var(--muted);font-size:17px;max-width:780px}
 
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
-    .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    .card h3{margin:8px 0;font-size:18px;color:var(--primary)}
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:28px}
+    .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+    .card h3{margin:10px 0;font-size:18px;color:var(--primary)}
 
-    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
-    .step{padding:16px;border-radius:16px;border:1px dashed #cbd5e1;background:#fff}
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:28px}
+    .step{padding:18px;border-radius:16px;border:1px dashed #cbd5e1;background:#fff;font-size:15px}
 
-    .pricing{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:26px}
-    .price{padding:22px;border:1px solid var(--border);border-radius:20px;background:#fff;box-shadow:var(--shadow)}
+    .pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:28px}
+    .price{padding:24px;border:1px solid var(--border);border-radius:20px;background:#fff;box-shadow:var(--shadow)}
     .price strong{font-size:34px;color:var(--primary)}
+    .price ul{margin:14px 0 0 18px;color:var(--muted)}
 
     details{border:1px solid var(--border);border-radius:14px;padding:14px;background:#fff;box-shadow:var(--shadow)}
     details+details{margin-top:12px}
 
     footer{padding:40px 0;color:var(--muted);background:#fff;border-top:1px solid var(--border)}
-    .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:20px}
+    .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;padding-top:20px}
 
-    @media (max-width:980px){.hero-grid{grid-template-columns:1fr}.features{grid-template-columns:1fr 1fr}.pricing{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
-    @media (max-width:640px){h1{font-size:34px}.features,.steps{grid-template-columns:1fr}}
+    @media (max-width:900px){h1{font-size:34px}.hero-grid{grid-template-columns:1fr}.menu{display:none}}
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="container nav">
-      <div class="brand">
-        <div class="logo">CA</div>
-        <span>CRM Artisans</span>
-      </div>
+      <div class="brand"><div class="logo">CA</div>CRM Artisans</div>
       <nav class="menu">
         <a href="#fonctionnalites">Fonctionnalités</a>
-        <a href="#process">Process</a>
+        <a href="#pourquoi">Pourquoi ce CRM</a>
         <a href="#tarifs">Tarifs</a>
         <a href="#faq">FAQ</a>
       </nav>
@@ -90,84 +83,72 @@
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow">Version minimale</span>
-        <h1>Le CRM pour artisans : devis, opérations & factures</h1>
-        <p class="sub">Couvrez 80% des besoins : créer un devis, planifier l’intervention, facturer et relancer — sans usine à gaz.</p>
+        <span class="eyebrow">Pour artisans, auto-entrepreneurs et TPE</span>
+        <h1>Le CRM simple pour gérer vos devis, chantiers et factures</h1>
+        <p class="sub">CRM Artisans vous aide à centraliser votre gestion : créez un devis, suivez vos opérations, facturez vos clients et automatisez les relances. Tout est pensé pour simplifier la vie des pros du terrain.</p>
         <div class="hero-cta">
           <a class="btn" href="https://manay.fr/dashboard" target="_blank" rel="noopener">Créer un compte</a>
         </div>
-        <div class="statbar">
-          <div class="stat">⏱️ -6h / semaine d’administratif</div>
-          <div class="stat">💸 +22% de paiements à l’heure</div>
+      </div>
+      <div class="device">
+        <div class="device-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="mock">
+          <p>Visualisez vos devis, factures et opérations dans une interface claire et moderne.<br><br><strong>Gérez vos projets, vos clients et vos paiements depuis un seul espace.</strong></p>
         </div>
       </div>
-      <div class="device" id="demo">
-        <div class="device-head">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        </div>
-        <div class="mock">Aperçu interface (placeholder)</div>
-      </div>
-    </div>
-    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;opacity:.9;justify-content:center;padding:24px 0">
-      <span class="card" style="padding:8px 12px;border-radius:999px">Devis & Factures</span>
-      <span class="card" style="padding:8px 12px;border-radius:999px">Gestion d'opérations</span>
-      <span class="card" style="padding:8px 12px;border-radius:999px">Relances automatiques</span>
-      <span class="card" style="padding:8px 12px;border-radius:999px">Paiement en plusieurs fois</span>
     </div>
   </section>
 
-  <!-- Fonctionnalités -->
+  <section id="pourquoi">
+    <div class="container">
+      <h2>Pourquoi utiliser CRM Artisans ?</h2>
+      <p class="lead">Vous passez trop de temps à gérer vos devis, vos clients et vos paiements ? CRM Artisans a été créé pour rendre la gestion quotidienne plus fluide et automatisée.</p>
+      <div class="features">
+        <div class="card"><h3>Gain de temps</h3><p>Réduisez jusqu’à 6 heures d’administratif par semaine grâce à un flux simplifié de création et suivi.</p></div>
+        <div class="card"><h3>Organisation claire</h3><p>Vos devis, factures et opérations regroupés par client, avec suivi du statut et rappels automatiques.</p></div>
+        <div class="card"><h3>Accès partout</h3><p>Compatible mobile et tablette, pour gérer votre activité depuis le bureau ou le chantier.</p></div>
+      </div>
+    </div>
+  </section>
+
   <section id="fonctionnalites">
     <div class="container">
-      <h2>Fonctionnalités clés</h2>
-      <p class="lead">Flux clair devis → opération → facture. On commence simple et on itère.</p>
+      <h2>Fonctionnalités principales</h2>
+      <p class="lead">L’essentiel pour piloter votre activité, sans complexité inutile.</p>
       <div class="features">
-        <div class="card"><h3>📄 Devis rapides</h3><p>Articles, TVA, remise, CGV. Date d’acceptation incluse.</p></div>
-        <div class="card"><h3>🗂️ Fiche opération</h3><p>Planning, intervenants, check-list, pièces jointes.</p></div>
-        <div class="card"><h3>📬 Relances</h3><p>Modèles d’envoi et rappels de paiement configurables.</p></div>
+        <div class="card"><h3>📄 Devis rapides</h3><p>Ajoutez vos prestations, appliquez la TVA et envoyez le devis en un clic.</p></div>
+        <div class="card"><h3>🗂️ Suivi des opérations</h3><p>Planifiez vos interventions, assignez des collaborateurs et conservez les documents.</p></div>
+        <div class="card"><h3>💳 Facturation simplifiée</h3><p>Générez vos factures automatiquement à la clôture de l’opération et suivez les paiements.</p></div>
+        <div class="card"><h3>📬 Relances automatiques</h3><p>Envoyez des rappels de paiement à vos clients sans effort, selon vos propres délais.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Process -->
-  <section id="process">
-    <div class="container">
-      <h2>Process en 4 étapes</h2>
-      <div class="steps">
-        <div class="step">1) Devis → envoi</div>
-        <div class="step">2) Conversion en opération</div>
-        <div class="step">3) Clôture & facture PDF</div>
-        <div class="step">4) Encaissement & relances auto</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing -->
   <section id="tarifs">
     <div class="container">
       <h2>Tarifs</h2>
-      <p class="lead">Un plan gratuit pour essayer. Un plan Pro quand vous êtes prêt.</p>
+      <p class="lead">Essayez gratuitement avec 2 clients maximum, puis passez à l’abonnement Pro pour gérer sans limite.</p>
       <div class="pricing">
         <div class="price">
-          <h3>Gratuit</h3>
+          <h3>Version gratuite</h3>
           <p><strong>0€</strong></p>
           <ul>
-            <li>Jusqu’à <strong>2 clients</strong></li>
-            <li>Devis & opérations</li>
-            <li>Facture finale</li>
+            <li>2 clients maximum</li>
+            <li>Création de devis et opérations</li>
+            <li>Factures simples</li>
           </ul>
         </div>
         <div class="price" style="border-color:#4f46e5">
-          <h3>Pro</h3>
+          <h3>Version Pro</h3>
           <p><strong>8€</strong> / mois</p>
           <ul>
             <li>Clients illimités</li>
             <li>Relances automatiques</li>
             <li>Exports & numérotation légale</li>
+            <li>Support prioritaire</li>
           </ul>
           <a class="btn" href="https://manay.fr/dashboard" target="_blank" rel="noopener">Passer en Pro</a>
         </div>
@@ -175,28 +156,25 @@
     </div>
   </section>
 
-  <!-- FAQ -->
   <section id="faq">
     <div class="container">
       <h2>Questions fréquentes</h2>
-      <details><summary>La version gratuite est-elle limitée ?</summary><p>Oui, elle permet de gérer jusqu’à 2 clients pour découvrir l’outil.</p></details>
-      <details><summary>Comment passer en Pro ?</summary><p>Depuis le tableau de bord : bouton “Passer en Pro”. Le tarif est de 8€/mois.</p></details>
-      <details><summary>Je peux revenir au gratuit ?</summary><p>Oui, vous pouvez changer d’offre à tout moment (les limites s’appliquent immédiatement).</p></details>
+      <details><summary>La version gratuite est-elle limitée ?</summary><p>Oui, elle permet de gérer jusqu’à 2 clients. Idéal pour tester les fonctionnalités du CRM avant de passer à la version Pro.</p></details>
+      <details><summary>Comment passer à la version Pro ?</summary><p>Depuis votre tableau de bord, cliquez sur “Passer en Pro”. L’abonnement est sans engagement, à 8€/mois.</p></details>
+      <details><summary>Ce CRM fonctionne-t-il sur mobile ?</summary><p>Oui, l’interface est 100% responsive : vous pouvez gérer vos devis, vos clients et vos factures depuis votre téléphone.</p></details>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container foot">
       <div class="brand"><div class="logo">CA</div>CRM Artisans</div>
-      <div>© <span id="year"></span> — Fait avec ❤️ pour les artisans</div>
+      <div>© <span id="year"></span> — Outil pensé pour les artisans et indépendants</div>
       <div style="display:flex;gap:12px">
         <a href="#">Mentions légales</a>
         <a href="#">Confidentialité</a>
       </div>
     </div>
   </footer>
-
-  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
